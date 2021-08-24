@@ -3,7 +3,8 @@ import { getNetwork } from '@ethersproject/networks'
 import { getDefaultProvider } from '@ethersproject/providers'
 import { TokenAmount } from './entities/fractions/tokenAmount'
 import { Pair } from './entities/pair'
-import IPancakePair from '@pancakeswap-libs/pancake-swap-core/build/IPancakePair.json'
+// import IPancakePair from '@pancakeswap-libs/pancake-swap-core/build/IPancakePair.json'
+import ILegionPair from './abis/LegionPair.json'
 import invariant from 'tiny-invariant'
 import ERC20 from './abis/ERC20.json'
 import { ChainId } from './constants'
@@ -68,7 +69,7 @@ export abstract class Fetcher {
   ): Promise<Pair> {
     invariant(tokenA.chainId === tokenB.chainId, 'CHAIN_ID')
     const address = Pair.getAddress(tokenA, tokenB)
-    const [reserves0, reserves1] = await new Contract(address, IPancakePair.abi, provider).getReserves()
+    const [reserves0, reserves1] = await new Contract(address, ILegionPair.abi, provider).getReserves()
     const balances = tokenA.sortsBefore(tokenB) ? [reserves0, reserves1] : [reserves1, reserves0]
     return new Pair(new TokenAmount(tokenA, balances[0]), new TokenAmount(tokenB, balances[1]))
   }
