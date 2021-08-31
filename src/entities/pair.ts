@@ -57,8 +57,6 @@ export class Pair {
       18,
       'Legion-LP',
       'Legion LPs'
-      // 'Cake-LP',
-      // 'Pancake LPs'
     )
     this.tokenAmounts = tokenAmounts as [TokenAmount, TokenAmount]
   }

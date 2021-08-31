@@ -9,10 +9,19 @@ import { Currency } from './currency'
 export class Token extends Currency {
   public readonly chainId: ChainId
   public readonly address: string
+  public readonly projectLink?: string
 
-  public constructor(chainId: ChainId, address: string, decimals: number, symbol?: string, name?: string) {
+  public constructor(
+    chainId: ChainId,
+    address: string,
+    decimals: number,
+    symbol?: string,
+    name?: string,
+    projectLink?: string
+  ) {
     super(decimals, symbol, name)
     this.chainId = chainId
+    this.projectLink = projectLink
     this.address = validateAndParseAddress(address)
   }
 
@@ -62,7 +71,16 @@ export const WETH = {
     '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
     18,
     'WBNB',
-    'Wrapped BNB'
+    'Wrapped BNB',
+    'https://www.binance.org'
   ),
-  [ChainId.TESTNET]: new Token(ChainId.TESTNET, '0xaE8E19eFB41e7b96815649A6a60785e1fbA84C1e', 18, 'WBNB', 'Wrapped BNB')
+
+  [ChainId.TESTNET]: new Token(
+    ChainId.TESTNET,
+    '0xaE8E19eFB41e7b96815649A6a60785e1fbA84C1e',
+    18,
+    'WBNB',
+    'Wrapped BNB',
+    'https://www.binance.org'
+  )
 }
