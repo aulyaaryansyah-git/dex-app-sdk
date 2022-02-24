@@ -1,16 +1,16 @@
 {
-  "name": "@ashalfarhan/legionswap-sdk-testnet",
+  "name": "@aulyaaryan/dex-app-sdk",
   "license": "MIT",
-  "version": "0.2.1",
-  "description": "🛠 An SDK for building applications on top of Legionswap.",
+  "version": "0.2.3",
+  "description": "🛠 An SDK for building applications on top of dex app.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/ashalfarhan/legionswap-sdk-testnet.git",
+  "repository": "https://github.com/aulyaaryansyah-git/dex-app-sdk.git",
   "keywords": [
-    "legionswap",
+    "dex",
     "bsc"
   ],
   "module": "dist/sdk.esm.js",
@@ -54,5 +54,7 @@
     "printWidth": 120,
     "semi": false,
     "singleQuote": true
-  }
+  },
+  "author": "aulyaaryansyah-git <aulyaaryansyahmail@gmail.com>",
+  "private": false
 }
